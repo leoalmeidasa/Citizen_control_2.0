@@ -9,7 +9,7 @@
 ## Dependências
 
 - Ruby 3.0.2
-- Rails 6.1.4.1
+- Rails 6.1.4.4
 - Postgres
 
 ## API no Heroku
