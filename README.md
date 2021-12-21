@@ -1,24 +1,30 @@
-# README
+# Projeto Desafio da Empresa OM30
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Vaga de Desenvolvedor Backend Rails
 
-Things you may want to cover:
+## Requisitos
 
-* Ruby version
+● Disponivel no Link: https://github.com/OM30/desafio-OM30/blob/master/DesafioBackendRuby.md
 
-* System dependencies
+## Dependências
 
-* Configuration
+- Ruby 3.0.2
+- Rails 6.1.4.1
+- Postgres
 
-* Database creation
+## API no Heroku
+● link: https://citizencontrol.herokuapp.com/citizens
 
-* Database initialization
+## Documentação da API
 
-* How to run the test suite
+● link:  https://www.postman.com/devtechbrazil/workspace/devtech-brazil/overview
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Setup
 
-* ...
+1. `git clone https://github.com/leoalmeidasa/Citizen_control
+2. `cd Citizen_control`
+3. `rake db:create db:migrate`
+4. `rspec spec/` (para verificar se todos os testes estão ok)
+5. `rails s`
+6. Abrir o link localhost:3000
