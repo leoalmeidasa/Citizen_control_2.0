@@ -1,0 +1,87 @@
+<%= form_with(model: address) do |form| %>
+  <% if address.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(address.errors.count, "error") %> prohibited this address from being saved:</h2>
+
+      <ul>
+        <% address.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-mdb-toggle="collapse"
+          data-mdb-target="#navbarExample01"
+          aria-controls="navbarExample01"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarExample01">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" <%= link_to 'Citizen', citizens_path %>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" <%= link_to 'Back', addresses_path %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <form>
+    <div class="form-group row col-sm-2 mx-5">
+      <%= form.label :CEP %>
+      <%= form.text_field :CEP %>
+    </div>
+
+    <div class="form-group row col-sm-2 mx-5">
+      <%= form.label :public_place %>
+      <%= form.text_field :public_place %>
+    </div>
+
+    <div class="form-group row col-sm-2 mx-5">
+      <%= form.label :complement %>
+      <%= form.text_field :complement %>
+    </div>
+
+    <div class="form-group row col-sm-2 mx-5">
+      <%= form.label :district %>
+      <%= form.text_field :district %>
+    </div>
+
+    <div class="form-group row col-sm-2 mx-5">
+      <%= form.label :city %>
+      <%= form.text_field :city %>
+    </div>
+
+    <div class="form-group row col-sm-2 mx-5">
+      <%= form.label :UF %>
+      <%= form.text_field :UF %>
+    </div>
+
+    <div class="form-group row col-sm-2 mx-5">
+      <%= form.label :IBGE_code %>
+      <%= form.text_field :IBGE_code %>
+    </div>
+
+    <div class="form-group row col-sm-2 mx-5">
+      <%= form.label :citizen_id %>
+      <%= form.collection_select(:citizen_id, Citizen.all, :id, :name, include_blank:true)%>
+    </div>
+
+    <div class="actions form-group row col-sm-2 mx-5">
+      <%= form.submit class: 'btn btn-primary'%>
+    </div>
+  </form>
+<% end %>

@@ -1,0 +1,75 @@
+<header>
+  !-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarExample01"
+        aria-controls="navbarExample01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarExample01">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" <%= link_to 'New Address', new_address_path %>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" <%= link_to 'Edit', edit_address_path(@address) %>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" <%= link_to 'Back', addresses_path %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+  <div class="p-3 text-left bg-gradient">
+    <p id="notice"><%= notice %></p>
+    <h1 class="mb-3">Citizens</h1>
+    <p>
+      <strong>Cep:</strong>
+      <%= @address.CEP %>
+    </p>
+
+    <p>
+      <strong>Public place:</strong>
+      <%= @address.public_place %>
+    </p>
+
+    <p>
+      <strong>Complement:</strong>
+      <%= @address.complement %>
+    </p>
+
+    <p>
+      <strong>District:</strong>
+      <%= @address.district %>
+    </p>
+
+    <p>
+      <strong>City:</strong>
+      <%= @address.city %>
+    </p>
+
+    <p>
+      <strong>Uf:</strong>
+      <%= @address.UF %>
+    </p >
+
+    <p>
+      <strong>Ibge code:</strong>
+      <%= @address.IBGE_code %>
+    </p>
+
+    <p>
+      <strong>Citizen:</strong>
+      <%= @address.citizen.name %>
+    </p>
+  </div>
