@@ -13,7 +13,7 @@ class Citizen < ApplicationRecord
   validate :validate_birth_date
 
   def validate_birth_date
-    if birth_date.present? && birth_date > 18.years.ago
+    if birth_date.present? && birth_date > 18.years.ago || 110.years.ago < birth_date
       errors.add(:birth_date, 'You should be over 18 years old or above 110 years old.')
     end
   end
