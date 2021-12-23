@@ -56,13 +56,13 @@
         <td><%= address.UF %></td>
         <td><%= address.IBGE_code %></td>
         <td><%= address.citizen.name %></td>
-        <td><%= link_to 'Show', address %></td>
-        <td><%= link_to 'Edit', edit_address_path(address) %></td>
-        <td><%= link_to 'Destroy', address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', address, class: "btn btn-outline-info"  %></td>
+        <td><%= link_to 'Edit', edit_address_path(address), class: "btn btn-outline-warning" %></td>
+        <td><%= link_to 'Destroy', address, method: :delete, class: "btn btn-outline-danger", data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
     </tbody>
   </table>
 </div>
 
-<%= link_to 'New Address', new_address_path %>
+<%= link_to 'New Address', new_address_path, class: "btn btn-outline-success" %>
