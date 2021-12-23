@@ -1,0 +1,11 @@
+development:
+  cloud_name: "dbfiqm5nz"
+  api_key: "362568612274681"
+  api_secret: "4blPUnnAV06hKE0dzWUMKp8r6fQ"
+  secure: true
+
+production:
+  cloud_name: "dbfiqm5nz"
+  api_key: "362568612274681"
+  api_secret: "4blPUnnAV06hKE0dzWUMKp8r6fQ"
+  secure:true
