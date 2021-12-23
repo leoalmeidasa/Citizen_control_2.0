@@ -2,5 +2,5 @@
 
 class Address < ApplicationRecord
   belongs_to :citizen
-  validates :CEP, :public_place, :district, :city, :UF, presence: true
+  validates_presence_of :CEP, :public_place, :district, :city, :UF, presence: true, message: 'é obrigatório !'
 end
