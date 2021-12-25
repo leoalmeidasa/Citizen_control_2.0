@@ -44,7 +44,7 @@
       <label class="col-sm-2 col-form-label">Data de Nascimento</label>
       <div class="col-sm-10">
         <%= form.input_field :birth_date, as: :date, start_year: Date.today.year - 110,
-                             end_year: Date.today.year - 12, class: 'form-group' %>
+                             end_year: Date.today.year - 12, order: [:year, :month, :day], class: 'form-group' %>
       </div>
     </div>
 
