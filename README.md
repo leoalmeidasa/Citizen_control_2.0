@@ -16,7 +16,8 @@
 ● link: https://citizencontrol.herokuapp.com/citizens
 
 ## Vídeo Demonstração do Projeto
-https://www.loom.com/share/625efbb626844198b578c08479e622c8?sharedAppSource=personal_library
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://www.loom.com/share/625efbb626844198b578c08479e622c8?sharedAppSource=personal_library)
+
 
 ## Documentação da API
 
