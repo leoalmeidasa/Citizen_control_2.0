@@ -29,7 +29,7 @@
 
 ## Setup
 
-1. `git clone https://github.com/leoalmeidasa/Citizen_control
+1. `git clone https://github.com/leoalmeidasa/Citizen_control`
 2. `cd Citizen_control`
 3. `rake db:create db:migrate`
 4. `rspec spec/` (para verificar se todos os testes estão ok)
