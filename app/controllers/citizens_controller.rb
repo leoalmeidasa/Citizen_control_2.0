@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CitizensController < ApplicationController
-  before_action :set_citizen, only: %i[show edit update ]
+  before_action :set_citizen, only: %i[show edit update]
 
   # GET /citizens or /citizens.json
   def index
@@ -15,6 +15,7 @@ class CitizensController < ApplicationController
   # GET /citizens/new
   def new
     @citizen = Citizen.new
+    @citizen.build_address
   end
 
   # GET /citizens/1/edit
@@ -24,15 +25,11 @@ class CitizensController < ApplicationController
   def create
     @citizen = Citizen.new(citizen_params)
 
-    respond_to do |format|
       if @citizen.save
-        format.html { redirect_to citizen_url(@citizen), notice: 'Citizen was successfully created.' }
-        format.json { render :show, status: :created, location: @citizen }
+        redirect_to citizen_path(@citizen)
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @citizen.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
   # PATCH/PUT /citizens/1 or /citizens/1.json
@@ -57,6 +54,7 @@ class CitizensController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def citizen_params
-    params.require(:citizen).permit(:name, :cpf, :cns, :email, :birth_date, :telephone, :status, :photo)
+    params.require(:citizen).permit(:name, :cpf, :cns, :email, :birth_date, :telephone, :status, :photo,
+                                    address_attributes: [:id, :CEP, :public_place, :complement, :district, :city, :UF, :IBGE_code]                           )
   end
 end

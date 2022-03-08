@@ -2,6 +2,7 @@
 
 class Citizen < ApplicationRecord
   has_one :address
+  accepts_nested_attributes_for :address
 
   validates_presence_of :name, :birth_date, :telephone, presence: true, message: 'é obrigatório !'
   validates_presence_of :cpf, presence: true, length: { minimum: 11, maximum: 11 }, uniqueness: true, message: 'o tamanho minimo é 11 caracteres !'
