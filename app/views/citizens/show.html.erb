@@ -1,77 +1,65 @@
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <div class="container-fluid">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-mdb-toggle="collapse"
-        data-mdb-target="#navbarExample01"
-        aria-controls="navbarExample01"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarExample01">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item active">
-            <a class="nav-link" <%= link_to 'Novo Cidadão', new_citizen_path %>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" <%= link_to 'Editar', edit_citizen_path(@citizen) %>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" <%= link_to 'Voltar', citizens_path %>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <div class="p-3 text-left bg-gradient">
+<div class="container">
+  <div class="col-sm-9">
     <p id="notice"><%= notice %></p>
-    <h1 class="mb-3">Cidadão</h1>
-    <p>
-      <strong>Nome:</strong>
-      <%= @citizen.name %>
-    </p>
+    <h2 class="mb-3">Munícipe</h2>
 
-    <p>
-      <strong>Cpf:</strong>
-      <%= @citizen.cpf %>
-    </p>
+    <% if @citizen.photo.attached? %>
+      <%= image_tag @citizen.photo, width: '25%' %>
+    <% end %>
+    <div class="row">
+      <div class="col"><h5><strong>Nome Completo</strong></h5>
+        <p><%= @citizen.name %></p></div>
+      <div class="col"><h5><strong>CPF</strong></h5>
+        <p><%= @citizen.cpf %></p></div>
+      <div class="col"><h5><strong>CNS</strong></h5>
+        <p><%= @citizen.cns %></p></div>
+    </div>
 
-    <p>
-      <strong>Cns:</strong>
-      <%= @citizen.cns %>
-    </p>
+    <div class="row">
+      <div class="col"><h5><strong>Email</strong></h5>
+        <p><%= @citizen.email %></p></div>
+      <div class="col"><h5><strong>Data de Nascimento</strong></h5>
+        <p><%= @citizen.birth_date %></p></div>
+      <div class="col"><h5><strong>Telefone</strong></h5>
+        <p><%= @citizen.telephone %></p></div>
+    </div>
 
-    <p>
-      <strong>Email:</strong>
-      <%= @citizen.email %>
-    </p>
+    <div class="row">
+      <div class="col"><h5><strong>Status</strong></h5>
+        <p><%= @citizen.status ? "Ativo" : "Inativo" %></p></div>
+    </div>
 
-    <p>
-      <strong>Data de Nascimento:</strong>
-      <%= @citizen.birth_date %>
-    </p>
+    <h3 class="mb-3">Endereço</h3>
 
-    <p>
-      <strong>Telefone:</strong>
-      <%= @citizen.telephone %>
-    </p>
+    <div class="row">
+      <div class="col"><h5><strong>CEP</strong></h5>
+        <p><%= @citizen.address.CEP %></p></div>
+      <div class="col"><h5><strong>Rua</strong></h5>
+        <p><%= @citizen.address.public_place %></p></div>
+      <div class="col"><h5><strong>Complemento</strong></h5>
+        <p><%= @citizen.address.complement %></p></div>
+    </div>
 
-    <p>
-      <strong>Status:</strong>
-      <%= @citizen.status ? "Active" : "Inactive"  %>
-    </p>
+    <div class="row">
+      <div class="col"><h5><strong>Bairro</strong></h5>
+        <p><%= @citizen.address.district %></p></div>
+      <div class="col"><h5><strong>Cidade</strong></h5>
+        <p><%= @citizen.address.city %></p></div>
+      <div class="col"><h5><strong>Estado</strong></h5>
+        <p><%= @citizen.address.UF %></p></div>
+    </div>
 
-    <p>
-      <strong>Foto:</strong>
-      <% if @citizen.photo.attached? %>
-        <%= image_tag @citizen.photo, width: '25%' %>
-      <% end %>
-    </p>
+    <div class="row">
+      <div class="col"><h5><strong>Código IBGE</strong></h5>
+        <p><%= @citizen.address.IBGE_code %></p></div>
+    </div>
+
+    <div class="col">
+      <%= link_to 'Editar', edit_citizen_path(@citizen), class: 'btn btn-warning' %>
+      <%= link_to 'Voltar', citizens_path, class: 'btn btn-danger' %>
+    </div>
   </div>
-</header>
+</div>
+
+
 
