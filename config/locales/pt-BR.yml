@@ -37,3 +37,4 @@
   messages:
     listing: Listando %{model}
     confirm_with: Você deseja realmente excluir %{item}
+    success: Munícipe atualizado com sucesso
