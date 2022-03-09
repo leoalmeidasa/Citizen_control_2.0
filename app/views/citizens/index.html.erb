@@ -13,11 +13,11 @@
 
 <div class="container-fluid">
   <p id="notice"><%= notice %></p>
-  <h1 class="mb-3">Cidadão</h1>
+  <h1 class="mb-3"><%= t('messages.listing', model: @citizens.model_name.human(count: 2)) %></h1>
   <%= search_form_for @q do |f| %>
     <div class="row">
       <div class="col-sm-4">
-        <%= f.label :name %>
+        <%= f.label translate_attribute(@citizens, :name) %>
         <%= f.search_field :name_cont %>
       </div>
       <div class="col-sm-4">
@@ -36,14 +36,14 @@
   <table class="table table-striped center">
     <thead>
     <tr>
-      <th><%= sort_link(@q, :name, "Nome")%></th>
-      <th><%= sort_link(@q, :cpf, "CPF")%></th>
-      <th><%= sort_link(@q, :cns, "CNS")%></th>
-      <th><%= sort_link(@q, :email, "Email")%></th>
-      <th><%= sort_link(@q, :birth_date, "Data de Nascimento")%></th>
-      <th><%= sort_link(@q, :telephone, "Telefone")%></th>
-      <th><%= sort_link(@q, :status, "Status")%></th>
-      <th>Foto</th>
+      <th><%= translate_attribute(@citizens, :photo) %></th>
+      <th><%= sort_link(@q, :name, translate_attribute(@citizens, :name))%></th>
+      <th><%= sort_link(@q, :cpf, translate_attribute(@citizens, :cpf))%></th>
+      <th><%= sort_link(@q, :cns, translate_attribute(@citizens, :cns))%></th>
+      <th><%= sort_link(@q, :email, translate_attribute(@citizens, :email))%></th>
+      <th><%= sort_link(@q, :birth_date, translate_attribute(@citizens, :birth_date))%></th>
+      <th><%= sort_link(@q, :telephone, translate_attribute(@citizens, :telephone))%></th>
+      <th><%= sort_link(@q, :status, translate_attribute(@citizens, :status))%></th>
       <th colspan="3"></th>
     </tr>
     </thead>
@@ -51,6 +51,7 @@
     <tbody>
     <% @citizens.each do |citizen| %>
       <tr class="table-info">
+        <td><%= image_tag citizen.photo, size:'50x50' if citizen.photo.attached? %></td>
         <td><%= citizen.name %></td>
         <td><%= citizen.cpf %></td>
         <td><%= citizen.cns %></td>
@@ -58,14 +59,10 @@
         <td><%= citizen.birth_date %></td>
         <td><%= citizen.telephone %></td>
         <td><%= citizen.status ? "Ativo" : "Inativo" %></td>
-        <td><%= image_tag citizen.photo, size:'50x50' if citizen.photo.attached? %></td>
-        <td><%= link_to 'Mostrar', citizen, class: "btn btn-outline-info" %></td>
-        <td><%= link_to 'Editar', edit_citizen_path(citizen), class: "btn btn-outline-warning" %></td>
+        <td><%= link_to t('links.edit'), edit_citizen_path(citizen), class: "btn btn-warning" %></td>
+        <td><%= link_to t('links.new'), new_citizen_path, class: "btn btn-success" %></td>
       </tr>
     <% end %>
     </tbody>
   </table>
 </div>
-
-
-<%= link_to 'Novo Cidadão', new_citizen_path, class: "btn btn-outline-success"%>
