@@ -1,0 +1,39 @@
+'pt-BR':
+  activerecord:
+    models:
+      address:
+        one: Endereço
+        other: Endereços
+      citizen:
+        one: Munícipe
+        other: Munícipes
+    attributes:
+      address:
+        id: Código
+        CEP: CEP
+        public_place: Rua
+        complement: Complemento
+        district: Bairro
+        city: Cidade
+        UF: UF
+        IBGE_code: Código IBGE
+      citizen:
+        id: Código
+        name: Nome
+        cpf: CPF
+        cns: CNS
+        email: Email
+        birth_date: Data de Nascimento
+        telephone: Fone
+        status: Status
+        photo: Foto
+  links:
+    back: Voltar
+    edit: Editar
+    show: Mostrar
+    destroy: Deletar
+    new: Novo Munícipe
+    new_address: Endereço
+  messages:
+    listing: Listando %{model}
+    confirm_with: Você deseja realmente excluir %{item}
