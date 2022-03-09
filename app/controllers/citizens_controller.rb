@@ -9,14 +9,13 @@ class CitizensController < ApplicationController
     @citizens = @q.result
   end
 
-  # GET /citizens/1 or /citizens/1.json
-  def show; end
-
   # GET /citizens/new
   def new
     @citizen = Citizen.new
     @citizen.build_address
   end
+  # GET /citizens/1/
+  def show; end
 
   # GET /citizens/1/edit
   def edit; end
@@ -34,15 +33,11 @@ class CitizensController < ApplicationController
 
   # PATCH/PUT /citizens/1 or /citizens/1.json
   def update
-    respond_to do |format|
       if @citizen.update(citizen_params)
-        format.html { redirect_to citizen_url(@citizen), notice: 'Citizen was successfully updated.' }
-        format.json { render :index, status: :ok, location: @citizen }
+        redirect_to citizens_path, notice: 'Citizen was successfully updated.'
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @citizen.errors, status: :unprocessable_entity }
+        render :edit, status: :unprocessable_entity
       end
-    end
   end
 
   private
