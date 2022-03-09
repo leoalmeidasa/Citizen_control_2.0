@@ -11,7 +11,6 @@ gem "cocoon"
 gem 'jbuilder', '~> 2.7'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.4'
-gem 'rails-i18n', '~> 6.0'
 gem 'ransack', '2.4.2'
 gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
