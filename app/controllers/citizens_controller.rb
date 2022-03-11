@@ -20,19 +20,19 @@ class CitizensController < ApplicationController
   def create
     @citizen = Citizen.new(citizen_params)
 
-      if @citizen.save
-        redirect_to citizen_path(@citizen)
-      else
-        render :new
-      end
+    if @citizen.save
+      redirect_to citizens_path
+    else
+      render :new
+    end
   end
 
   def update
-      if @citizen.update(citizen_params)
-        redirect_to citizens_path, notice: t('messages.success')
-      else
-        render :edit, status: :unprocessable_entity
-      end
+    if @citizen.update(citizen_params)
+      redirect_to citizens_path, notice: t('messages.success')
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private
@@ -43,6 +43,6 @@ class CitizensController < ApplicationController
 
   def citizen_params
     params.require(:citizen).permit(:name, :cpf, :cns, :email, :birth_date, :telephone, :status, :photo,
-                                    address_attributes: [:id, :CEP, :public_place, :complement, :district, :city, :UF, :IBGE_code]                           )
+                                    address_attributes: %i[id CEP public_place complement district city UF IBGE_code])
   end
 end

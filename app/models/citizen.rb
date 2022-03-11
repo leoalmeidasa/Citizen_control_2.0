@@ -4,10 +4,11 @@ class Citizen < ApplicationRecord
   has_one :address
   accepts_nested_attributes_for :address
 
-  validates_presence_of :name, :birth_date, :telephone, presence: true, message: 'é obrigatório !'
-  validates_presence_of :cpf, presence: true, length: { minimum: 11, maximum: 11 }, uniqueness: true, message: 'o tamanho minimo é 11 caracteres !'
-  validates_presence_of :cns, presence: true, length: { minimum: 15, maximum: 15 }, uniqueness: true, message: 'o tamanho minimo é 15 caracteres !'
-  validates_presence_of :email, presence: true, format: { with: /\A.*@.*\.com\z/ }, message: 'não é válido !'
+  validates :name, :birth_date, :telephone, presence: true
+  validates :cpf, presence: true, length: { minimum: 11, maximum: 11 }, uniqueness: true
+  validates :cns, presence: true, length: { minimum: 15, maximum: 15 }, uniqueness: true
+  validates :email, presence: true, format: { with: /\A.*@.*\.com\z/ }
+  validates :telephone, length: { is: 11 }
 
   has_one_attached :photo
 
@@ -15,7 +16,7 @@ class Citizen < ApplicationRecord
 
   def validate_birth_date
     if birth_date.present? && birth_date > 18.years.ago
-        errors.add(:birth_date, 'favor preencha com uma data válida !')
+        errors.add(:birth_date, 'inválida, favor preencha com uma data válida !')
     end
   end
 end

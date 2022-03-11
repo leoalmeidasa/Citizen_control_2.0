@@ -60,9 +60,9 @@
         <td><%= citizen.telephone %></td>
         <td><%= citizen.status ? "Ativo" : "Inativo" %></td>
         <td><%= link_to t('links.edit'), edit_citizen_path(citizen), class: "btn btn-warning" %></td>
-        <td><%= link_to t('links.new'), new_citizen_path, class: "btn btn-success" %></td>
       </tr>
     <% end %>
     </tbody>
   </table>
+  <%= link_to t('links.new'), new_citizen_path, class: "btn btn-success" %>
 </div>
