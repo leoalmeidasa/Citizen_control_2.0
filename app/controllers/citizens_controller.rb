@@ -21,7 +21,7 @@ class CitizensController < ApplicationController
     @citizen = Citizen.new(citizen_params)
 
     if @citizen.save
-      redirect_to citizens_path
+      redirect_to citizens_path, notice: t('messages.create')
     else
       render :new
     end
