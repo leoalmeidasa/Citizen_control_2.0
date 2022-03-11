@@ -22,9 +22,10 @@ RSpec.describe 'Citizens', type: :request do
     {}
   end
 
-  describe 'GET /show' do
-    it 'renders a successful response' do
-      get citizen_url(citizen), as: :json
+  describe "GET /index" do
+    it "renders a successful response" do
+      Citizen.create! citizen_valid_attributes
+      get citizens_url, headers: valid_headers, as: :json
       expect(response).to be_successful
     end
   end
@@ -37,12 +38,16 @@ RSpec.describe 'Citizens', type: :request do
                params: { citizen: citizen_valid_attributes }, as: :json
         end.to change(Citizen, :count).by(1)
       end
+    end
+  end
 
-      it 'renders a JSON response with the new address' do
-        post citizens_url,
-             params: { citizen: citizen_valid_attributes }, as: :json
-        expect(response).to have_http_status(:created)
-      end
+  describe "PUT /update" do
+    before do
+      patch citizen_url(citizen), params: { citizen: {name: "Evandro"} }
+      citizen.reload
+    end
+    it "renders a successful response" do
+      expect(citizen.name).to eq('Evandro')
     end
   end
 end
