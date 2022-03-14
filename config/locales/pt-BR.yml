@@ -13,18 +13,29 @@
               wrong_length: inválido, utilizar 8 dígitos
         citizen:
           attributes:
+            birth_date:
+              blank: inválido, insira um data de nascimento válida
+              invalid: inválido, insira um data de nascimento válida
             cpf:
               taken: duplicado, utilizado por outro usuário
               too_short: inválido, utilizar 11 digitos
               too_long: inválido, utilizar 11 digitos
+              wrong_length: inválido, utilizar 11 digitos
             cns:
               taken: duplicado, utilizado por outro usuário
               too_short: inválido, utilizar 15 digitos
               too_long: inválido, utilizar 15 digitos
+              wrong_length: inválido, utilizar 15 digitos
             email:
               invalid: inválido, insira um email válido
+              blank: inválido, insira um email válido
+            name:
+              blank: em branco, insira um nome válido
+              invalid: inválido, insira um nome válido
             telephone:
               wrong_length: inválido, insira um telefone válido
+              blank: inválido, insira um telefone válido
+              invalid: inválido, insira um telefone válido
     models:
       address:
         one: Endereço
@@ -64,3 +75,4 @@
     confirm_with: Você deseja realmente excluir %{item}
     success: Munícipe atualizado com sucesso
     create: Munícipe criado com sucesso
+    invalid: inválido
