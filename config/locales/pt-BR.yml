@@ -1,5 +1,30 @@
 'pt-BR':
   activerecord:
+    errors:
+      messages:
+        record_invalid: 'A validação falhou: %{errors}'
+        restrict_dependent_destroy:
+          has_many: Não é possível excluir o registro pois existem %{record} dependentes
+          has_one: Não é possível excluir o registro pois existe um %{record} dependente
+      models:
+        address:
+          attributes:
+            CEP:
+              wrong_length: inválido, utilizar 8 dígitos
+        citizen:
+          attributes:
+            cpf:
+              taken: duplicado, utilizado por outro usuário
+              too_short: inválido, utilizar 11 digitos
+              too_long: inválido, utilizar 11 digitos
+            cns:
+              taken: duplicado, utilizado por outro usuário
+              too_short: inválido, utilizar 15 digitos
+              too_long: inválido, utilizar 15 digitos
+            email:
+              invalid: inválido, insira um email válido
+            telephone:
+              wrong_length: inválido, insira um telefone válido
     models:
       address:
         one: Endereço
@@ -38,3 +63,4 @@
     listing: Listando %{model}
     confirm_with: Você deseja realmente excluir %{item}
     success: Munícipe atualizado com sucesso
+    create: Munícipe criado com sucesso

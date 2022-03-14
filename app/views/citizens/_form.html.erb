@@ -1,8 +1,6 @@
 <%= simple_form_for @citizen do |form| %>
   <% if @citizen.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(citizen.errors.count, "error") %> prohibited this citizen from being saved:</h2>
-
       <ul>
         <% @citizen.errors.each do |error| %>
           <li><%= error.full_message %></li>
