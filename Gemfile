@@ -8,6 +8,7 @@ ruby '3.0.3'
 gem 'bootstrap', '~> 5.1.3'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem "cocoon"
+gem "cpf_cnpj"
 gem 'jbuilder', '~> 2.7'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.4'
@@ -17,8 +18,8 @@ gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
 
 group :development, :test do
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails', '~> 6.2'
+  gem 'pry', '~> 0.13.1'
   gem 'rspec-rails', '~> 5.0.0'
   gem 'sqlite3', '~> 1.4'
 end
