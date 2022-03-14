@@ -53,14 +53,14 @@ RSpec.describe Citizen, type: :model do
       context 'when birth date is invalid' do
         it 'should allow invalid birth date' do
           citizen = Citizen.new(birth_date: Date.yesterday)
-          citizen.validate_birth_date
+          citizen.valid?
           expect(citizen.errors[:birth_date]).to include('inválida, favor preencha com uma data válida !')
         end
       end
       context 'when birth date is valid' do
         it 'should allow valid birth date' do
           citizen = Citizen.new(birth_date: '1993-05-04')
-          citizen.validate_birth_date
+          citizen.valid?
           expect(citizen.errors[:birth_date]).to be_empty
         end
       end
