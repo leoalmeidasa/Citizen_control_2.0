@@ -7,6 +7,7 @@ RSpec.describe Citizen, type: :model do
   describe 'associations' do
     it { is_expected.to have_one :address }
     it { is_expected.to accept_nested_attributes_for :address }
+    it { is_expected.to have_one_attached(:photo) }
   end
 
   describe 'validations' do
